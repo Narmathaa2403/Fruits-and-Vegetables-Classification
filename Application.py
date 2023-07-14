@@ -100,9 +100,9 @@ def run():
     if img_file is not None:
         img = Image.open(img_file).resize((250, 250))
         st.image(img, use_column_width=False)
-        save_image_path = os.path.join('./upload_images', img_file.name)
+        save_image_path = os.path.join('/app/upload_images/', img_file.name)
         img.save(save_image_path)
-
+        
         # if st.button("Predict"):
         if img_file is not None:
             # result = processed_img(save_image_path)
