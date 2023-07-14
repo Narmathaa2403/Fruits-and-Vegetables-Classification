@@ -98,10 +98,11 @@ def run():
     st.title("🍍🍍Fruits and Vegetables Classification with Calorie and Sugar Content🍅🍅")
     img_file = st.file_uploader("Choose an Image", type=["jpg", "png"])
     if img_file is not None:
-        img = Image.open(img_file).resize((250, 250))
+        img = Image.open(img_file).resize((300, 300))
         st.image(img, use_column_width=False)
-        save_image_path = os.path.join('/app/upload_images/', img_file.name)
-        img.save(save_image_path)
+        save_image_path = './upload_images/' + img_file.name
+        with open(save_image_path, "wb") as f:
+            f.write(img_file.getbuffer())
         
         # if st.button("Predict"):
         if img_file is not None:
